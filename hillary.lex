@@ -12,14 +12,6 @@ extern int atoi (const char *);
 
 %%
 
-[0-9]+            { yylval.num = atoi(yytext); return NUM; }
-[a-zA-Z][a-zA-Z]* { return NAME; }
-[\n\t ]+          /* skip white space */
-"//"              { BEGIN (COMMENT); }
-<COMMENT>.+       /* skip comment */
-<COMMENT>\n       {  /* end of comment --> resume normal processing */
-                  BEGIN (0); }
-
 "state"           { return STATE; }
 "county"          { return COUNTY; }
 "cancelled"       { return CANCELLED; }
@@ -34,7 +26,13 @@ extern int atoi (const char *);
 "(R)"             { return REPUBLICANS; }
 "Win !"           { return WIN; }
 "verbose"         { return VERBOSE; }
-
+[0-9]+            { yylval.num = atoi(yytext); return NUM; }
+[a-zA-Z][a-zA-Z]* { return NAME; }
+[\n\t ]+          /* skip white space */
+"//"              { BEGIN (COMMENT); }
+<COMMENT>.+       /* skip comment */
+<COMMENT>\n       {  /* end of comment --> resume normal processing */
+                  BEGIN (0); }
 .                 { fprintf (stderr, "unrecognized token %c\n", yytext[0]); }
 
 %%
