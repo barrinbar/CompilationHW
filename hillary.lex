@@ -21,10 +21,8 @@ extern int atoi (const char *);
 "Donald Trump"    { return DONALD; }
 "electors"        { return ELECTORS; }
 "Democrats"       { return DEMOCRATS; }
-"(D)"             { return DEMOCRATS; }
 "Republicans"     { return REPUBLICANS; }
-"(R)"             { return REPUBLICANS; }
-"Win !"           { return WIN; }
+"Win"             { return WIN; }
 "verbose"         { return VERBOSE; }
 [0-9]+            { yylval.num = atoi(yytext); return NUM; }
 [a-zA-Z][a-zA-Z]* { return NAME; }
