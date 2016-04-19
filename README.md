@@ -1,5 +1,6 @@
 # CompilationHW1
-Repo for HW in compilation course @ Afeka College
+Repo for HW in compilation course @ Afeka College of Enginering
+A basic lexical parser and shift reduce parser for compiling an imaginary elections results language
 
 Joint work of @barrinbar and @omerel
 
